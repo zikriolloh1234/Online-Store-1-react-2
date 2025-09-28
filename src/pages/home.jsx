@@ -9,6 +9,7 @@ import Swipper from '../components/swipper';
 import Footer from '../components/footer';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { BaseApi } from '../app/token';
 
 const Home = () => {
     const [variant, setVariant] = React.useState('solid');
@@ -16,7 +17,7 @@ const Home = () => {
 
     useEffect(() => {
         axios
-            .get("http://37.27.29.18:8002/Category/get-categories")
+            .get(`${BaseApi}/Category/get-categories`)
             .then((res) => {
                 setCategories(res.data.data);
                 if (res.data.data.length > 0) {

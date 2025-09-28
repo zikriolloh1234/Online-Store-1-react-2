@@ -3,7 +3,7 @@ import Navbar from './navbar';
 import Footer from '../components/footer';
 import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
-import { AxiosToken } from '../app/token';
+import { AxiosToken, BaseApi } from '../app/token';
 import { message } from 'antd';
 
 const Account = () => {
@@ -22,7 +22,7 @@ const Account = () => {
 
   const getUserProfile = async () => {
     try {
-      const res = await AxiosToken.get('/UserProfile/get-user-profile-by-id', {
+      const res = await AxiosToken.get(`${BaseApi}/UserProfile/get-user-profile-by-id`, {
         params: { id: "5e8675a9-9ddc-4ae8-95cc-32ad45151b77" }
       });
       setProfile({
@@ -55,7 +55,7 @@ const Account = () => {
     }
 
     try {
-      await AxiosToken.put('/UserProfile/update-user-profile', {
+      await AxiosToken.put(`${BaseApi}/UserProfile/update-user-profile`, {
         firstName: profile.firstName,
         lastName: profile.lastName,
         email: profile.email,

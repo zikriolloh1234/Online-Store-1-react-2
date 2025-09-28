@@ -3,6 +3,7 @@ import axios from "axios";
 import Navbar from "./navbar";
 import Swipper from "../components/swipper";
 import Footer from "../components/footer";
+import { BaseApi } from "../app/token";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
@@ -11,7 +12,7 @@ const Categories = () => {
 
   useEffect(() => {
     axios
-      .get("http://37.27.29.18:8002/Category/get-categories")
+      .get(`${BaseApi}/Category/get-categories`)
       .then((res) => {
         setCategories(res.data.data);
         if (res.data.data.length > 0) {

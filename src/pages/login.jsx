@@ -22,7 +22,7 @@ const Login = () => {
         const password = e.target[1].value;
         // console.log(userName, password)
         try {
-            const { data } = await axios.post(`${BaseApi}store-api.softclub.tj/Account/login`, {
+            const { data } = await axios.post(`${BaseApi}/Account/login`, {
                 userName,
                 password
             });
