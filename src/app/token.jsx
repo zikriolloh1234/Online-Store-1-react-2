@@ -35,7 +35,7 @@ AxiosToken.interceptors.request.use(
 
 export async function getProducts(pageNumber = 1, pageSize = 10) {
   try {
-    const { data } = await AxiosToken.get("/Product/get-products", {
+    const { data } = await AxiosToken.get("https://store-api.softclub.tj/Product/get-products", {
       params: { pageNumber, pageSize },
     });
 
