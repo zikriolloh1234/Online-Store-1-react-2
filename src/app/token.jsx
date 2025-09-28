@@ -35,7 +35,7 @@ AxiosToken.interceptors.request.use(
 
 export async function getProducts(pageNumber = 1, pageSize = 10) {
   try {
-    const { data } = await AxiosToken.get("https://store-api.softclub.tj/Product/get-products", {
+    const { data } = await AxiosToken.get("store-api.softclub.tj/Product/get-products", {
       params: { pageNumber, pageSize },
     });
 
@@ -57,7 +57,7 @@ export async function getProducts(pageNumber = 1, pageSize = 10) {
 
 export async function getById(id) {
   try {
-    let response = await AxiosToken.get(`https://store-api.softclub.tj/Product/get-product-by-id?id=${id}`);
+    let response = await AxiosToken.get(`store-api.softclub.tj/Product/get-product-by-id?id=${id}`);
     return response.data.data;
   } catch (error) {
     console.log(error);
@@ -68,7 +68,7 @@ export const addToCart = async (id) => {
   try {
     const token = localStorage.getItem("accessToken");
     const res = await axios.post(
-      `https://store-api.softclub.tj/Cart/add-product-to-cart?id=${id}`,
+      `store-api.softclub.tj/Cart/add-product-to-cart?id=${id}`,
       {},
       {
         headers: {
@@ -85,7 +85,7 @@ export const addToCart = async (id) => {
 
 export const getCart = async () => {
   try {
-    let res = await AxiosToken.get(`https://store-api.softclub.tj/Cart/get-products-from-cart`);
+    let res = await AxiosToken.get(`store-api.softclub.tj/Cart/get-products-from-cart`);
     return res.data;
   } catch (error) {
     console.log(error);
@@ -96,7 +96,7 @@ console.log("TOKEN:", localStorage.getItem("accessToken"));
 
 export const deleteProductCard = async (id) => {
   try {
-    let res = await AxiosToken.delete(`https://store-api.softclub.tj/Cart/delete-product-from-cart?id=${id}`);
+    let res = await AxiosToken.delete(`store-api.softclub.tj/Cart/delete-product-from-cart?id=${id}`);
     return res.data
   } catch (error) {
     console.log(error);
@@ -104,7 +104,7 @@ export const deleteProductCard = async (id) => {
 }
 export const clearCart = async () => {
   try {
-    let res = await AxiosToken.delete(`https://store-api.softclub.tj/Cart/clear-cart`);
+    let res = await AxiosToken.delete(`store-api.softclub.tj/Cart/clear-cart`);
     return res.data
   } catch (error) {
     console.log(error);
@@ -112,7 +112,7 @@ export const clearCart = async () => {
 }
 export const decQunCart = async (id) => {
   try {
-    let res = await AxiosToken.put(`https://store-api.softclub.tj/Cart/increase-product-in-cart?id=${id}`);
+    let res = await AxiosToken.put(`store-api.softclub.tj/Cart/increase-product-in-cart?id=${id}`);
     return res.data
   } catch (error) {
     console.log(error);
@@ -120,7 +120,7 @@ export const decQunCart = async (id) => {
 }
 export const incQunCart = async (id) => {
   try {
-    let res = await AxiosToken.put(`https://store-api.softclub.tj/Cart/reduce-product-in-cart?id=${id}`);
+    let res = await AxiosToken.put(`store-api.softclub.tj/Cart/reduce-product-in-cart?id=${id}`);
     return res.data
   } catch (error) {
     console.log(error);
@@ -128,7 +128,7 @@ export const incQunCart = async (id) => {
 }
 export const getUserProfil = async (id) => {
   try {
-    let res = await AxiosToken.get(`https://store-api.softclub.tj/UserProfile/get-user-profiles${id}`);
+    let res = await AxiosToken.get(`store-api.softclub.tj/UserProfile/get-user-profiles${id}`);
     return res.data
   } catch (error) {
     console.log(error);

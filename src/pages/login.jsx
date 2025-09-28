@@ -22,7 +22,7 @@ const Login = () => {
         const password = e.target[1].value;
         // console.log(userName, password)
         try {
-            const { data } = await axios.post(`${BaseApi}/store-api.softclub.tj/Account/login`, {
+            const { data } = await axios.post(`${BaseApi}store-api.softclub.tj/Account/login`, {
                 userName,
                 password
             });
@@ -37,7 +37,7 @@ const Login = () => {
     return (
         <>
             <div className='navbar'>
-                <img className='logo' src="/public/images/Group 1116606595 (1).png" alt="" />
+                <img className='logo' src="/images/Group 1116606595 (1).png" alt="" />
                 <ul>
                     <li>
                         <Link to="/" style={{ cursor: "pointer", textDecoration: "none", color: "inherit" }}>
